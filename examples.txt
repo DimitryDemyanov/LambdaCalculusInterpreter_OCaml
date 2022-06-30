@@ -1,0 +1,55 @@
+true;
+let x = true in x;
+if false then true else false;
+0;
+succ (succ (succ 0));
+3;
+succ (pred 0);
+iszero (pred (succ (succ 0)));
+if iszero 3 then 0 else 1;
+iszero true;
+if 1 then true else false;
+if true then true else false;
+if iszero 3 then 0 else false;
+let id = Lx.x in id 3;
+
+let id_bool = 
+L x:Bool. x 
+in id_bool true;
+
+succ (
+succ (succ 0))
+;
+
+
+let id_nat = L x:Nat. x in id_nat 5;
+let x = 5 in let id_nat = L x:Nat. x in id_nat x;
+
+letrec sum : Nat -> Nat -> Nat =
+lambda n : Nat. lambda m : Nat. if iszero n then m else succ (sum (pred n) m) in
+letrec prod : Nat -> Nat -> Nat =
+lambda n : Nat. lambda m : Nat. if iszero (pred n) then m else sum (prod (pred n) m) m
+in prod 12 5;
+
+letrec sum : Nat -> Nat -> Nat =
+lambda n : Nat. lambda m : Nat. if iszero n then m else succ (sum (pred n) m) in
+letrec fib: Nat -> Nat = 
+lambda n : Nat. if iszero n then n else if iszero (pred n) then n else sum (fib (pred n)) (fib (pred (pred n)))
+in fib 6;
+
+"Titulo : 'Don Quijote'";
+"hola, " ^ ("que tal " ^ "estas?");
+concat "hola " ("que tal " ^ "estas?");
+(if iszero 3 then "No aparece" else "CONCA") ^ (if false then " true" else "TENADO");
+
+{5, true};
+second {5, true};
+first{(Lx: Nat.x) 2, "h"};
+
+x = true;
+id = lambda x : Bool. x;
+id x;
+
+x = 5;
+f = lambda y : Nat. x;
+f 0;
